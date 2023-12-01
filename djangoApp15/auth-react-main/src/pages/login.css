@@ -1,0 +1,46 @@
+/* login.css */
+
+.form-floating {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
+  .form-check-input {
+    margin-right: 0.5rem;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .p-2 {
+    padding: 0.5rem;
+  }
+  
+  .bg-red-100 {
+    background-color: #f56565;
+  }
+  
+  .text-red-800 {
+    color: #f3efef;
+  }
+  

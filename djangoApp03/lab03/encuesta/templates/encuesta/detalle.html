@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encuesta</title>
+    <style>
+        /* Estilos para el título de la pregunta */
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para las opciones de la pregunta */
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Estilos para el botón de votar */
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para el enlace "Ver Preguntas" */
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ pregunta.pregunta_texto }}</h1>
+
+    <form action="{% url 'encuesta:votar' pregunta.id %}" method="post">
+        {% csrf_token %}
+        {% for opcion in pregunta.opcion_set.all %}
+            <input type="radio" name="opcion" id="opcion{{ forloop.counter }}" value="{{ opcion.id}}">
+            <label for="opcion{{forloop.counter }}">{{ opcion.opcion_texto }}</label><br>
+        {% endfor %}
+        <input type="submit" value="votar">
+    </form>
+
+    <a href="{% url 'encuesta:index' %}">Ver Preguntas</a>
+</body>
+</html>

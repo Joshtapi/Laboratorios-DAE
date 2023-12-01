@@ -1,0 +1,19 @@
+<h1>RELACION DE MATRICULADOS</h1>
+<table border="1">
+    <tr>
+        <th>Alumno</th>
+        <th>Email</th>
+        <th>Requisitos completados</th>
+        <th>Requisitos pendientes</th>
+    </tr>
+    {% for nota in notas %} 
+    <tr>
+        <td>{{nota.alumno.nombre}}</td>
+        <td>{{nota.email}}</td>
+        <td>{{nota.alumno.requisitos_completados}}</td>
+        <td>{{nota.alumno.requisitos_pendientes}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'Matricula:index' %}">Volver a pagina principal</a>
+

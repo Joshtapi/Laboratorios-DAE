@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Estilos CSS avanzados */
+  h1 {
+    color: #ff0000;
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  .receta {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
+  strong {
+    font-weight: bold;
+  }
+  a {
+    display: inline-block;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  a:hover {
+    background-color: #ff0000;
+  }
+</style>
+
+<h1>Listado de recetas</h1>
+
+{% for receta in recetas %}
+  <div class="receta">
+    <h2>{{ receta.titulo }}</h2>
+    <p><strong>Ingredientes:</strong> {{ receta.ingredientes }}</p>
+    <p><strong>Preparación:</strong> {{ receta.preparacion }}</p>
+    <p><strong>Autor:</strong> {{ receta.autor.nombre }}</p>
+  </div>
+{% empty %}
+  <p>No hay recetas disponibles.</p>
+{% endfor %}
+<a href="{% url 'index' %}">Volver a la página de inicio</a>
+{% endblock %}

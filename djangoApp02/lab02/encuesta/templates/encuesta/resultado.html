@@ -1,0 +1,6 @@
+<center><h2 style="color: #333; font-size: 24px;">{{ titulo }}</h2></center>
+{% if resultado %}
+<center><p style="color: green;">La {{ operacion }} de {{ num1 }} {{ signo }} {{ num2 }} = {{ resultado }}</p></center>
+{% else %}
+<center><p style="color: red;">No se ha seleccionado una operación válida.</p></center>
+{% endif %}

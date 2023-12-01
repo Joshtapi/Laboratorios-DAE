@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Bienvenido a Recetario
+{% endblock %}
+
+{% block content %}
+  <style>
+    /* Estilos CSS avanzados */
+    h1 {
+      color: #ff0000;
+      font-size: 3em;
+    }
+    p {
+      color: #333;
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+    a {
+      display: inline-block;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    a:hover {
+      background-color: #ff0000;
+    }
+  </style>
+
+  <h1>Bienvenido a Recetario</h1>
+  <p>Encuentra aquí las mejores recetas de cocina.</p>
+  <a href="{% url 'lista_recetas' %}">Ver recetas</a>
+{% endblock %}

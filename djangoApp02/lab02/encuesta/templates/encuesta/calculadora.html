@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+    <style>
+        /* Estilos para el formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        label {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        select {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 5px;
+        }
+        input[type="number"] {
+            font-size: 18px;
+            padding: 5px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>{{ titulo }}</h1></center>
+    <form action="{% url 'encuesta:resultado' %}" method="post">
+        {% csrf_token %}
+        <label for="num1">Primer número:</label>
+        <input type="number" name="num1" required>
+        <label for="num2">Segundo número:</label>
+        <input type="number" name="num2" required>
+        <label for="operacion">Operación:</label>
+        <select name="operacion" required>
+            <option value="">Seleccione una operación</option>
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="multiplicacion">Multiplicación</option>
+        </select>
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<h1>Requisitos de Matricula</h1>
+<form action="Matricula:Resultados" method="POST">
+    {% csrf_token %}
+    <ul>
+        {% for pregunta in preguntas %}
+        <li>{{pregunta.pregunta_texto}}
+            <ul>
+                {% for opcion in pregunta.opcion_set.all %}
+                <li>
+                    <input type="radio" name="pregunta_{{pregunta.id}}" ">
+                    {{opcion.opcion_texto}}
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Enviar">
+</form>

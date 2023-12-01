@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <img class="card-img-top" src="{{ product.imagen.url }}" alt="product.nombre">
+    </div>
+    <div class="col-md-8">
+        <h1 class="my-4">{{ product.nombre }}</h1>
+        <p>Categoria: {{ product.categoria }}</p>
+        <h3 class="my-3">Descripción del producto:</h3>
+        <p>{{ product.descripcion }}</p>
+        <h3 class="my-3">Precio:</h3>
+        <p>S/ {{ product.precio }}</p>
+        <a href="#" class="btn btn-primary" style="display: inline-block; margin-right: 20px;">Agregar al carrito</a>
+        <a href="http://127.0.0.1:8000/tienda/" class="btn btn-primary" style="display: inline-block;">Menu principal</a><br><br>      
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle de la pregunta</title>
+    <style>
+        /* Estilos para el título de la página */
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para la lista de opciones */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para el enlace "Votar de nuevo" */
+        a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ pregunta.pregunta_texto }}</h1>
+    <ul>
+        {% for opcion in pregunta.opcion_set.all %}
+            <li>{{ opcion.opcion_texto }} -- {{ opcion.votos }} voto{{ opcion.votos|pluralize }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'encuesta:detalle' pregunta.id %}">Votar de nuevo</a>
+    <a href="{% url 'encuesta:index' %}">Ver Preguntas</a>
+</body>
+</html>

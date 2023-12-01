@@ -1,0 +1,10 @@
+<h1>Resultados</h1>
+<p>Por favor llenar datos del ingresante</p>
+<form action="{% url 'Matricula:registro' %}" method="post">
+    {% csrf_token %} 
+    <input type="hidden" name="nota" value="{{nota}}"/>
+    Datos Personales<br/>
+    Nombre: <input type="text" name="nombre"/><br/>
+    Email: <input type="text" name="email"/><br/>
+    <input type="submit" value="REGISTRAR DATOS DEL ALUMNO"/>
+</form>

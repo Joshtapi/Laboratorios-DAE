@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de volumen de cilindro</title>
+    <style>
+        h2 {
+            color: #003366;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de volumen de cilindro</h2>
+    <form action="{% url 'cilindro' %}" method="post">
+        {% csrf_token %}
+        <label for="altura">Altura (metros):</label>
+        <input type="number" name="altura" required><br>
+        <label for="diametro">Diámetro (metros):</label>
+        <input type="number" name="diametro" required><br>
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>
